@@ -14,6 +14,7 @@ public class Main {
 		String b[]={"Hearts","Spades"};
 		int c[]={1,2,3,4};
         Deck d = new Deck(a,b,c);
+        d.shuffle();
     }
 }
 

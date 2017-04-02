@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -13,7 +14,8 @@ public class Deck {
     /**
      * cards contains all the cards in the deck.
      */
-    private List<Card> cards;
+    private List<Card> cards= new ArrayList();
+    private List<Card> newcards= new ArrayList();
 
     /**
      * size is the number of not-yet-dealt cards.
@@ -68,7 +70,20 @@ public class Deck {
      * and reset the size to represent the entire deck.
      */
     public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+        Random rd = new Random();
+        int a[]=new int[cards.size()];
+        int x = 0;
+        for(int i = 0;i<cards.size();i++){
+            a[i]=rd.nextInt(cards.size());
+            for(int j = 0; j<a.length;j++){
+                while(a[i]==a[j]&&i!=j){
+                    a[i]=rd.nextInt(cards.size());
+                }
+            }
+        }
+        for(int c=0;c<a.length;c++){
+            newcards.add(cards.get(a[c]));
+        }
     }
 
     /**
